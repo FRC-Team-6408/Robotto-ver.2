@@ -5,13 +5,15 @@ import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 public class ClawSub extends Subsystem {
-	public SpeedController clawIntakeController = new Spark(6);
+	public SpeedController clawIntakeLeftController = new Spark(4);
+	public SpeedController clawIntakeRightController = new Spark(5);
 	
 	public void initDefaultCommand() { }
     
     //speedValue from -1 to 1
     public void setClawIntakeSpeed(double speedValue) {
-    	clawIntakeController.set(speedValue * 100);
+    	clawIntakeLeftController.set(speedValue * 100);
+    	clawIntakeRightController.set(speedValue * 100);
     }
     
 }

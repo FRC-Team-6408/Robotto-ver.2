@@ -10,6 +10,7 @@
 
 package org.usfirst.frc.team6408.robot;
 
+import edu.wpi.first.wpilibj.DigitalOutput;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
@@ -73,8 +74,11 @@ public class Robot extends IterativeRobot {
     public void autonomousPeriodic() {
         Scheduler.getInstance().run();
     }
+    
+    public DigitalOutput led = new DigitalOutput(9);
 
     public void teleopInit() {
+    	led.enablePWM(1.0);
         if (autonomousCommand != null) autonomousCommand.cancel();
     }
 
@@ -86,10 +90,31 @@ public class Robot extends IterativeRobot {
     	
     	armSub.setArmSpeed(oi.ps4Controller.getRawAxis(5));  //controll arm with joystick 2.
     	
+    	
+    	led.pulse(oi.ps4Controller.getY() * 100);
+    	System.out.print(oi.ps4Controller.getY() * 100);
+    	//System.out.print(5.7);
+    	
         Scheduler.getInstance().run();
     }
 
+    
+    public void testInit() {
+    	//init
+    	
+    	//System.out.print("Woah111\n");
+    }	
+    
+    //public static byte ledCode[] = {(byte) 255};
+  
     public void testPeriodic() {
+    	//ledCode[9] = (byte) 170;
+    	
+    	
+    	//led.set(oi.ps4Controller.getRawButton(1));
+    	
+    	
+    	
     	//hahahahahahaha nope.
         LiveWindow.run();
     }

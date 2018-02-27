@@ -45,10 +45,10 @@ public class OI {
     	winchUpMainButton = new JoystickButton(ps4Controller, 14);
     	winchUpMainButton.whileHeld(new MoveWinch(DIRECTION_UP, 0.95));  //winch goes at near full speed.
     	winchUpMainButton.whenReleased(new MoveWinch(DIRECTION_STOPPED));
-    	winchUpButton = new JoystickButton(ps4Controller, 16);  //just a guess
+    	winchUpButton = new JoystickButton(ps4Controller, 13);  //just a guess
     	winchUpButton.whileHeld(new MoveWinch(DIRECTION_UP, 0.95));  //winch goes at near full speed.
     	winchUpButton.whenReleased(new MoveWinch(DIRECTION_STOPPED)); 
-    	winchDownButton = new JoystickButton(ps4Controller, 20);  //just a guess
+    	winchDownButton = new JoystickButton(ps4Controller, 12);  //just a guess
     	winchDownButton.whileHeld(new MoveWinch(DIRECTION_DOWN, 0.3));  //winch goes down slowly
     	winchDownButton.whenReleased(new MoveWinch(DIRECTION_STOPPED)); 
     

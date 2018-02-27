@@ -6,15 +6,14 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 
 public class WinchSub extends Subsystem {
 
-	public SpeedController leftWinchController = new Spark(4);
-	public SpeedController rightWinchController = new Spark(5);
+	//the speed controller for the single winch motor
+	public SpeedController winchController = new Spark(8);
 	
     public void initDefaultCommand() { }
     
     //speedValue from -1 to 1
     public void turnWinch(double speedValue) {
-    	leftWinchController.set(speedValue * 100);
-    	rightWinchController.set(speedValue * 100);
+    	winchController.set(speedValue * 100);
     }
 }
 

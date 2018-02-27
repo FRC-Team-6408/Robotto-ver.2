@@ -5,8 +5,8 @@ import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 public class ArmSub extends Subsystem {
-	public SpeedController leftArmController = new Spark(7);
-	public SpeedController rightArmController = new Spark(8);
+	public SpeedController leftArmController = new Spark(6);
+	public SpeedController rightArmController = new Spark(7);
 	
     public void initDefaultCommand() { }
     
