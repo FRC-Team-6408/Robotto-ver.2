@@ -77,17 +77,7 @@ public class Robot extends IterativeRobot {
         Scheduler.getInstance().run();
     }
     
-    
-    public DigitalOutput led = new DigitalOutput(9);
-
-    //private static SerialPort ledOut = new SerialPort(9600, SerialPort.Port.kMXP);
-    //private static byte ledCode[] = {(byte) 255};
-    
     public void teleopInit() {
-    	//ledCode[0] = (byte) 170;
-        //ledOut.write(ledCode, 1);
-    	//led.set(false);
-    	//led.enablePWM(1.0);
         if (autonomousCommand != null) autonomousCommand.cancel();
     }
 
@@ -99,34 +89,15 @@ public class Robot extends IterativeRobot {
     	
     	armSub.setArmSpeed(oi.ps4Controller.getRawAxis(5));  //controll arm with joystick 2.
     	
-    	//ledCode[0] = (byte) 140;
-        //ledOut.write((byte) 250, 1);
-    	
-    	//led.set(true);
-    	//System.out.print(5.7);
-    	
         Scheduler.getInstance().run();
     }
 
     
     public void testInit() {
-    	//init
     	
-    	//System.out.print("Woah111\n");
     }	
     
-    //public static byte ledCode[] = {(byte) 255};
-  
     public void testPeriodic() {
-    	//ledCode[9] = (byte) 170;
-    	
-    	//ledCode[0] = (byte) 170;
-        //ledOut.write((byte) 170, 1);
-    	
-    	//led.set(oi.ps4Controller.getRawButton(1));
-    	
-    	
-    	
     	//hahahahahahaha nope.
         LiveWindow.run();
     }
