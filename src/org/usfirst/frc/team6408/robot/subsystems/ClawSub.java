@@ -12,8 +12,8 @@ public class ClawSub extends Subsystem {
     
     //speedValue from -1 to 1
     public void setClawIntakeSpeed(double speedValue) {
-    	clawIntakeLeftController.set(speedValue * 100);
-    	clawIntakeRightController.set(speedValue * 100);
+    	clawIntakeLeftController.set(speedValue);
+    	clawIntakeRightController.set(speedValue);
     }
     
 }

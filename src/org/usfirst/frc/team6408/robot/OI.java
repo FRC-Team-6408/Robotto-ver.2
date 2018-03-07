@@ -57,10 +57,12 @@ public class OI {
     
     	//claw buttons
     	clawInButton = new JoystickButton(ps4Controller, 8);
-    	clawInButton.whileHeld(new SetIntakeSpeed(DIRECTION_IN, 0.7));  //just a high-ish speed.
-    	clawInButton.whenReleased(new SetIntakeSpeed(DIRECTION_IN, 0.05));  //a small amount of pressure.
+    	//clawInButton.whileHeld(new SetIntakeSpeed(DIRECTION_IN, 0.7));  //just a high-ish speed.
+    	//clawInButton.whenReleased(new SetIntakeSpeed(DIRECTION_IN, 0.05));  //a small amount of pressure.
+    	clawInButton.whileHeld(new SetIntakeSpeed(DIRECTION_IN, 0.6));  //just a high-ish speed.
+    	clawInButton.whenReleased(new SetIntakeSpeed(DIRECTION_STOPPED));  //a small amount of pressure.
     	clawOutButton = new JoystickButton(ps4Controller, 6);
-    	clawOutButton.whileHeld(new SetIntakeSpeed(DIRECTION_OUT, 1));  //full speed.  So it shoots the box.  //TODO: make sure we dont kill anyone.
+    	clawOutButton.whileHeld(new SetIntakeSpeed(DIRECTION_OUT, 0.6));  //full speed.  So it shoots the box.  //TODO: make sure we dont kill anyone.
     	clawOutButton.whenReleased(new SetIntakeSpeed(DIRECTION_STOPPED));  //a small amount of pressure.
     	
     	//speed buttons
