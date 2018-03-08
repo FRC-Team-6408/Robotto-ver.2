@@ -7,5 +7,7 @@
 	<classpathentry kind="var" path="opencv" sourcepath="opencv.sources"/>
 	<classpathentry kind="var" path="cscore" sourcepath="cscore.sources"/>
 	<classpathentry kind="var" path="wpiutil" sourcepath="wpiutil.sources"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/javac_please_work"/>
+	<classpathentry kind="lib" path="C:/Program Files/Java/jdk1.8.0_161/src.zip"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
