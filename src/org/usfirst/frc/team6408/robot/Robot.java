@@ -10,6 +10,8 @@
 
 package org.usfirst.frc.team6408.robot;
 
+import edu.wpi.cscore.UsbCamera;
+import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.DigitalOutput;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.IterativeRobot;
@@ -42,6 +44,10 @@ public class Robot extends IterativeRobot {
     	
     	RobotMap.init();  //I like this placement
     
+    	//Set up two cameras.
+    	UsbCamera camFront = CameraServer.getInstance().startAutomaticCapture("cam1", 1);
+    	UsbCamera camWinch = CameraServer.getInstance().startAutomaticCapture("cam0", 0);
+    	
         driveSub = new DriveSub();
         armSub = new ArmSub();
         clawSub = new ClawSub();
