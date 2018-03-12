@@ -68,8 +68,9 @@ public class Robot extends IterativeRobot {
     }
 
     public void autonomousInit() {
-      //Move speed is 75% (0.75), for 3 seconds (3 s)
-    	autonomousCommand = new MoveInches(0.75, 0.75, 3);
+    	//Move speed is 75% (0.75), for 4 seconds (4 s)
+    	//Remember to change both the comment AND the actual code.
+    	autonomousCommand = new SetSpeedLRForTime(0.75, 0.75, 4);
 
         if (autonomousCommand != null) autonomousCommand.start();
     }

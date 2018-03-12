@@ -43,17 +43,6 @@ public class OI {
     	armUpButton.whileHeld(new MoveArm(DIRECTION_DOWN, 0.6));  //slower than armUp because gravity.
     	armUpButton.whenReleased(new MoveArm(DIRECTION_STOPPED));
 
-    	//winch buttons
-    	//winchUpMainButton = new JoystickButton(ps4Controller, 14);
-    	//winchUpMainButton.whileHeld(new MoveWinch(DIRECTION_UP, 0.95));  //winch goes at near full speed.
-    	//winchUpMainButton.whenReleased(new MoveWinch(DIRECTION_STOPPED));
-    	//winchUpButton = new JoystickButton(ps4Controller, 5);  //just a guess
-    	//winchUpButton.whileHeld(new MoveWinch(DIRECTION_UP, 0.95));  //winch goes at near full speed.
-    	//winchUpButton.whenReleased(new MoveWinch(DIRECTION_STOPPED));
-    	//winchDownButton = new JoystickButton(ps4Controller, 7);  //just a guess
-    	//winchDownButton.whileHeld(new MoveWinch(DIRECTION_DOWN, 0.3));  //winch goes down slowly
-    	//winchDownButton.whenReleased(new MoveWinch(DIRECTION_STOPPED));
-
     	//claw buttons
     	clawInButton = new JoystickButton(ps4Controller, 8);
     	//clawInButton.whileHeld(new SetIntakeSpeed(DIRECTION_IN, 0.7));  //just a high-ish speed.
