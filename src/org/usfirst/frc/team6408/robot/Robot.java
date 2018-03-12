@@ -33,26 +33,26 @@ import org.usfirst.frc.team6408.robot.subsystems.*;
 public class Robot extends IterativeRobot {
 
     Command autonomousCommand;
-    
+
     public static DriveSub driveSub;
     public static ArmSub armSub;
     public static ClawSub clawSub;
     public static WinchSub winchSub;
     public static OI oi;
-    
+
     public void robotInit() {
-    	
-    	RobotMap.init();  //I like this placement
-    
-    	//Set up two cameras.
-    	UsbCamera camFront = CameraServer.getInstance().startAutomaticCapture("cam1", 1);
-    	UsbCamera camWinch = CameraServer.getInstance().startAutomaticCapture("cam0", 0);
-    	
+
+    	  RobotMap.init();  //I like this placement
+
+    	  //Set up two cameras.
+    	  UsbCamera camFront = CameraServer.getInstance().startAutomaticCapture("cam1", 1);
+    	  UsbCamera camWinch = CameraServer.getInstance().startAutomaticCapture("cam0", 0);
+
         driveSub = new DriveSub();
         armSub = new ArmSub();
         clawSub = new ClawSub();
         winchSub = new WinchSub();
-        
+
         //Oh shit, if you move this statement above any other subsystems it grabs null pointers and bad shit goes down.
         oi = new OI();  //Don't fucking touch this.
 
@@ -68,43 +68,39 @@ public class Robot extends IterativeRobot {
     }
 
     public void autonomousInit() {
-    	//INCORRECT VERSION:
-    	
-        //Choose the correct auto command
-    	//DriverStation.getInstance().getGameSpecificMessage();
-    	
-    	//String gameData;  
-    	//gameData = DriverStation.getInstance().getGameSpecificMessage();  //Will give string like "LLR"
-    	
+      //Move speed is 75% (0.75), for 3 seconds (3 s)
+    	autonomousCommand = new MoveInches(0.75, 0.75, 3);
+
         if (autonomousCommand != null) autonomousCommand.start();
     }
 
     public void autonomousPeriodic() {
         Scheduler.getInstance().run();
     }
-    
+
     public void teleopInit() {
         if (autonomousCommand != null) autonomousCommand.cancel();
     }
 
     public void teleopPeriodic() {
-    	driveSub.setSpeedLR(
-    		oi.ps4Controller.getX() + oi.ps4Controller.getY(), 
-    		oi.ps4Controller.getX() - oi.ps4Controller.getY()
-    	);
-    	
-    	armSub.setArmSpeed(oi.ps4Controller.getRawAxis(5));  //controll arm with joystick 2.
-    	
+        //controller drive
+    	  driveSub.setSpeedLR(
+    		    oi.ps4Controller.getX() + oi.ps4Controller.getY(),
+    		    oi.ps4Controller.getX() - oi.ps4Controller.getY()
+    	  );
+
+        //controll arm with joystick 2
+    	  armSub.setArmSpeed(oi.ps4Controller.getRawAxis(5));  //controll arm with joystick 2.
+
         Scheduler.getInstance().run();
     }
 
-    
     public void testInit() {
-    	
-    }	
-    
+
+    }
+
     public void testPeriodic() {
-    	//hahahahahahaha nope.
+    	  //hahahahahahaha nope.
         LiveWindow.run();
     }
 }
