@@ -45,8 +45,8 @@ public class Robot extends IterativeRobot {
     	  RobotMap.init();  //I like this placement
 
     	  //Set up two cameras.
-    	  UsbCamera camFront = CameraServer.getInstance().startAutomaticCapture("cam1", 1);
-    	  UsbCamera camWinch = CameraServer.getInstance().startAutomaticCapture("cam0", 0);
+    	  CameraServer.getInstance().startAutomaticCapture();
+    	  CameraServer.getInstance().startAutomaticCapture();
 
         driveSub = new DriveSub();
         armSub = new ArmSub();
@@ -70,8 +70,8 @@ public class Robot extends IterativeRobot {
     public void autonomousInit() {
     	//Move speed is 75% (0.75), for 4 seconds (4 s)
     	//Remember to change both the comment AND the actual code.
-    	autonomousCommand = new SetSpeedLRForTime(0.75, 0.75, 4);
-
+    	autonomousCommand = new SetSpeedLRForTime(0.385, 0.4, 5);
+    	
         if (autonomousCommand != null) autonomousCommand.start();
     }
 
@@ -87,7 +87,7 @@ public class Robot extends IterativeRobot {
         //controller drive
     	  driveSub.setSpeedLR(
     		    oi.ps4Controller.getX() + oi.ps4Controller.getY(),
-    		    oi.ps4Controller.getX() - oi.ps4Controller.getY()
+    		    -oi.ps4Controller.getX() + oi.ps4Controller.getY()
     	  );
 
         //controll arm with joystick 2

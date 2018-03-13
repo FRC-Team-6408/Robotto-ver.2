@@ -13,18 +13,20 @@ public class SetSpeedLRForTime extends Command {
 		private Timer m_timer = new Timer();
 
 		//Time is in seconds, speed from 1 to -1.
-    public SetSpeedLRForTime(double leftSpeed, double rightSpeed, int m_timeLength) {
+    public SetSpeedLRForTime(double leftSpeed, double rightSpeed, double timeLength) {
         m_leftSpeed = leftSpeed;
         m_rightSpeed = rightSpeed;
+        m_timeLength = timeLength;
     }
 
 		//init timer
 	  protected void initialize() {
 		  m_timer.start();
+		  Robot.driveSub.setSpeedLR(-m_leftSpeed, -m_rightSpeed);
 	  }
 
     protected void execute() {
-    	Robot.driveSub.setSpeedLR(m_leftSpeed, m_rightSpeed);
+    	Robot.driveSub.setSpeedLR(-m_leftSpeed, -m_rightSpeed);
     }
 
     protected boolean isFinished() {

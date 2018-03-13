@@ -36,11 +36,11 @@ public class OI {
     	//arm buttons (I probably wont use this code)
     	// Use this if moving the arm with the joystick is badd.
 
-    	armUpButton = new JoystickButton(ps4Controller, 5);
-    	armUpButton.whileHeld(new MoveArm(DIRECTION_UP, 0.8));
+    	armUpButton = new JoystickButton(ps4Controller, 4);
+    	armUpButton.whileHeld(new MoveArm(DIRECTION_UP, 1));
     	armUpButton.whenReleased(new MoveArm(DIRECTION_STOPPED, 0));
-    	armDownButton = new JoystickButton(ps4Controller, 7);
-    	armDownButton.whileHeld(new MoveArm(DIRECTION_DOWN, 0.6));  //slower than armUp because gravity.
+    	armDownButton = new JoystickButton(ps4Controller, 2);
+    	armDownButton.whileHeld(new MoveArm(DIRECTION_DOWN, 0.75));  //slower than armUp because gravity.
     	armDownButton.whenReleased(new MoveArm(DIRECTION_STOPPED, 0));
 
     	//claw buttons
@@ -52,9 +52,9 @@ public class OI {
     	clawOutButton.whenReleased(new SetIntakeSpeed(DIRECTION_STOPPED, 0));  //a small amount of pressure.
 
     	//speed buttons
-        slowSpeedButton = new JoystickButton(ps4Controller, 2);
+        slowSpeedButton = new JoystickButton(ps4Controller, 7);
         slowSpeedButton.whenPressed(new SetDriveSpeedMod(0.5));
-        fastSpeedButton = new JoystickButton(ps4Controller, 4);
+        fastSpeedButton = new JoystickButton(ps4Controller, 5);
         fastSpeedButton.whenPressed(new SetDriveSpeedMod(0.75));
     }
 }
