@@ -4,6 +4,7 @@ import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
+//Deprecated class
 public class WinchSub extends Subsystem {
 
 	//the speed controller for the single winch motor
@@ -13,7 +14,7 @@ public class WinchSub extends Subsystem {
     
     //speedValue from -1 to 1
     public void turnWinch(double speedValue) {
-    	winchController.set(speedValue * 100);
+    	//winchController.set(speedValue);
     }
 }
 

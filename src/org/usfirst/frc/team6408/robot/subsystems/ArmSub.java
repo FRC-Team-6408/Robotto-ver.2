@@ -12,8 +12,8 @@ public class ArmSub extends Subsystem {
     
     //speedValue from -1 to 1
     public void setArmSpeed(double speedValue) {
-    	leftArmController.set(speedValue * 100);
-    	rightArmController.set(speedValue * 100);
+    	leftArmController.set(speedValue);
+    	rightArmController.set(speedValue);
     }
 }
 
