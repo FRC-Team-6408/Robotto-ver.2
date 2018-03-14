@@ -39,14 +39,18 @@ public class Robot extends IterativeRobot {
     public static ClawSub clawSub;
     public static WinchSub winchSub;
     public static OI oi;
+    
+    //Maybe variables fixes it?
+    public UsbCamera usbCam1;
+    public UsbCamera usbCam2;
 
     public void robotInit() {
 
-    	  RobotMap.init();  //I like this placement
+    	RobotMap.init();  //I like this placement
 
-    	  //Set up two cameras.
-    	  CameraServer.getInstance().startAutomaticCapture();
-    	  CameraServer.getInstance().startAutomaticCapture();
+    	//Set up two cameras.
+    	usbCam1 = CameraServer.getInstance().startAutomaticCapture();
+    	usbCam2 = CameraServer.getInstance().startAutomaticCapture();
 
         driveSub = new DriveSub();
         armSub = new ArmSub();
@@ -68,7 +72,7 @@ public class Robot extends IterativeRobot {
     }
 
     public void autonomousInit() {
-    	//Move speed is 75% (0.75), for 4 seconds (4 s)
+    	//Move speed is 40% (0.4), for 4 seconds (4 s)
     	//Remember to change both the comment AND the actual code.
     	autonomousCommand = new SetSpeedLRForTime(0.385, 0.4, 5);
     	
