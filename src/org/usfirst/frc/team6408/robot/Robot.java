@@ -88,14 +88,18 @@ public class Robot extends IterativeRobot {
     }
 
     public void teleopPeriodic() {
-        //controller drive
+    	// IF FORWARDS DOWSN'T WORK RIGHT, REMOVE THE NEGITAVE SIGN.
+    	// -GABE
+    	
+        // Controller drive
     	  driveSub.setSpeedLR(
-    		    oi.ps4Controller.getX() + oi.ps4Controller.getY(),
-    		    -oi.ps4Controller.getX() + oi.ps4Controller.getY()
+    		    oi.ps4Controller.getX(),
+    		    -oi.ps4Controller.getRawAxis(5)  // Remove this negitave sign if it doesn't work right 
     	  );
-
-        //controll arm with joystick 2
-    	  armSub.setArmSpeed(oi.ps4Controller.getRawAxis(5));  //controll arm with joystick 2.
+    	  
+    	// Arm is no longer controlled with the joystick.
+        // Controll arm with joystick 2
+    	// ArmSub.setArmSpeed(oi.ps4Controller.getRawAxis(5));  //controll arm with joystick 2.
 
         Scheduler.getInstance().run();
     }
